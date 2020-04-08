@@ -1,0 +1,16 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple/"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+psycopg2 = "*"
+xlrd = "*"
+sqlalchemy = "*"
+pandas = "*"
+python-dotenv = "*"
+
+[requires]
+python_version = "3.6"
