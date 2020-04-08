@@ -2,8 +2,8 @@
 load data from csv/xlsx  into database(mysql/postgresql)
 
 ## INSTALL
-- pipenv install 
-or 
+- pipenv install  
+or  
 - pip install -r requirements.txt
 
 ## CONFIG
