@@ -12,6 +12,8 @@ engine = create_engine(os.getenv('DATABASE_URI'))
 
 
 def import_file(arg):
+    if not os.path.exists(arg.file):
+        raise IOError("{} is not exists.".format(arg.file))
     encoding = detcode.detectCode(arg.file)
     df = pd.read_csv(arg.file, sep=',', encoding=encoding)
     df.columns = [c.lower() for c in df.columns]
