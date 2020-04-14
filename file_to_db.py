@@ -3,6 +3,7 @@ from sqlalchemy import create_engine
 import pandas as pd
 import argparse
 from dotenv import load_dotenv, find_dotenv
+import detcode
 
 load_dotenv(find_dotenv())
 
@@ -11,7 +12,8 @@ engine = create_engine(os.getenv('DATABASE_URI'))
 
 
 def import_file(arg):
-    df = pd.read_csv(arg.file, sep=',')
+    encoding = detcode.detectCode(arg.file)
+    df = pd.read_csv(arg.file, sep=',', encoding=encoding)
     df.columns = [c.lower() for c in df.columns]
     df.to_sql(arg.table, engine)
 
